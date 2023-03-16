@@ -5,8 +5,8 @@
       "author": "Mick Herron",
       "thumbnail": "https://m.media-amazon.com/images/I/51Ga5GuElyL._SX331_BO1,204,203,200_.jpg",
       "price": 14,
-      "rating": 3,
-      "featured": false,
+      "rating": "4",
+      "featured": true,
       "id": 1
     },
     {
@@ -35,7 +35,25 @@
       "rating": "5",
       "feature": "false",
       "id": 5,
-      "featured": false
+      "featured": true
+    },
+    {
+      "name": "Banglay Iltes",
+      "author": "Rashed khan",
+      "thumbnail": "https://m.media-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
+      "price": "23",
+      "rating": "5",
+      "featured": "false",
+      "id": 6
+    },
+    {
+      "name": "Slow Horses (Deluxe Edition)",
+      "author": "Mick Herron",
+      "thumbnail": "https://m.media-amazon.com/images/I/51Ga5GuElyL._SX331_BO1,204,203,200_.jpg",
+      "price": "12121",
+      "rating": "3",
+      "featured": "on",
+      "id": 7
     }
   ]
 }

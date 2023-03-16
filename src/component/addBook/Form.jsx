@@ -111,8 +111,8 @@ export default function Form() {
 
       <div className="flex items-center">
         <input
-          onChange={(e) => setFeature(e.target.value)}
-          value={featured}
+          onChange={(e) => setFeature(e.target.checked)}
+          checked={featured}
           id="lws-featured"
           type="checkbox"
           name="featured"
