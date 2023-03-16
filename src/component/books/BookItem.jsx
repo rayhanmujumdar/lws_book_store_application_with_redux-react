@@ -18,7 +18,7 @@ export default function BookItem() {
     content = <Error message="No book found"></Error>
   }
   if(!isLoading && !isError && books?.length > 0){
-    content = books.map(book => <BookCard book={book}></BookCard>)
+    content = books.map(book => <BookCard key={book?.id} book={book}></BookCard>)
   }
   return (
     <main className="py-12 px-6 2xl:px-6 container">

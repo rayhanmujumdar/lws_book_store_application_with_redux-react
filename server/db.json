@@ -15,7 +15,7 @@
       "thumbnail": "https://m.media-amazon.com/images/P/1501171348.01._SCLZZZZZZZ_SX500_.jpg",
       "price": 13.99,
       "rating": 4,
-      "featured": false,
+      "featured": true,
       "id": 2
     },
     {
@@ -28,13 +28,14 @@
       "id": 4
     },
     {
-      "name": "rayhan",
+      "name": "Rayhan mojumdar",
       "author": "Mick Herron",
       "thumbnail": "https://m.media-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
       "price": "12121",
       "rating": "5",
       "feature": "false",
-      "id": 5
+      "id": 5,
+      "featured": true
     }
   ]
 }
