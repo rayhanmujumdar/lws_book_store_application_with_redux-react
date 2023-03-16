@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAddBookMutation } from "../../feature/api/apiSlice";
 import Success from "../ui/Success";
 import Error from "../ui/Error";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const [addBook, { isLoading, isSuccess, isError }] = useAddBookMutation();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -12,7 +14,7 @@ export default function Form() {
   const [rating, setRating] = useState("");
   const [featured, setFeature] = useState(false);
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     addBook({
       name,
       author,
@@ -21,8 +23,13 @@ export default function Form() {
       rating,
       featured,
     });
-    resetForm()
+    resetForm();
   };
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/");
+    }
+  }, [isSuccess, navigate]);
   const resetForm = () => {
     setName("");
     setAuthor("");

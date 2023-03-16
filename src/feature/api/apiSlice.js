@@ -35,10 +35,9 @@ const apiSlice = createApi({
       invalidatesTags: ["books"],
     }),
     deleteBook: builder.mutation({
-      query: ({ id }) => ({
+      query: (id) => ({
         url: `/books/${id}`,
-        method: "DELETE",
-        body: uBook,
+        method: "DELETE"
       }),
       invalidatesTags: ["books"],
     }),

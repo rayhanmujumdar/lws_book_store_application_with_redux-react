@@ -2,23 +2,28 @@ import React from "react";
 import BookCard from "./BookCard";
 import { useGetBooksQuery } from "../../feature/api/apiSlice";
 import FeaturedFilter from "../filter/FeaturedFilter";
-import CardLoader from "../ui/loaders/CardLoader"
-import Error from "../ui/Error"
+import CardLoader from "../ui/loaders/CardLoader";
+import Error from "../ui/Error";
+import { useSelector } from "react-redux";
 
 export default function BookItem() {
   const { data: books, isLoading, isError } = useGetBooksQuery();
-  let content = null
-  if(isLoading){
-    content = <CardLoader></CardLoader>
+  const { list, search } = useSelector((state) => state.filter);
+  let content = null;
+  if (isLoading) {
+    content = <CardLoader></CardLoader>;
   }
-  if(!isLoading && isError){
-    content = <Error message="There was an error"></Error>
+  if (!isLoading && isError) {
+    content = <Error message="There was an error"></Error>;
   }
-  if(!isLoading && !isError && books?.length === 0){
-    content = <Error message="No book found"></Error>
+  if (!isLoading && !isError && books?.length > 0) {
+    content = books
+      .filter((book) => list === "Featured" ? book.featured : true)
+      .filter((book) => book.name.toLowerCase().includes(search.toLowerCase()))
+      .map((book) => <BookCard key={book?.id} book={book}></BookCard>);
   }
-  if(!isLoading && !isError && books?.length > 0){
-    content = books.map(book => <BookCard key={book?.id} book={book}></BookCard>)
+  if (!isLoading && !isError && content?.length === 0) {
+    content = <Error message="No book found"></Error>;
   }
   return (
     <main className="py-12 px-6 2xl:px-6 container">
